@@ -10,6 +10,7 @@ import { MoveLeft, MoveRight } from "lucide-react";
 const TestimonialsSection = () => {
   const swiperRef = useRef(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
 
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -24,7 +25,8 @@ const TestimonialsSection = () => {
   };
 
   const checkScreenSize = () => {
-    setIsSmallScreen(window.innerWidth < 1200); // Change the value as per your breakpoint
+    setIsSmallScreen(window.innerWidth < 640);
+    setIsMediumScreen(window.innerWidth > 640 && window.innerWidth < 1200);
   };
 
   useEffect(() => {
@@ -55,37 +57,37 @@ const TestimonialsSection = () => {
       </div>
       <Swiper
         ref={swiperRef}
-        slidesPerView={isSmallScreen ? 2 : "auto"}
+        slidesPerView={isSmallScreen ? 1 : isMediumScreen ? 2 : "auto"}
         centeredSlides={false}
         spaceBetween={20}
         pagination={{
           clickable: true,
         }}
-        className="swiper ml-32"
+        className="swiper lg:ml-32"
       >
         <SwiperSlide>
-          <TestimonialCard />
+          <TestimonialCard
+            name="Amelia Joseph"
+            position="Chief Manager"
+            testimonial="My vision came alive effortlessly. Their blend of casual and professional approach made the process a breeze. Creativity flowed, and the results were beyond my expectations."
+            imageUrl="avatar1.png"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <TestimonialCard />
+          <TestimonialCard
+            name="Jacob Joshua"
+            position="Chief Manager"
+            testimonial="I found the digital expertise I needed. Their creative-professional balance exceeded expectations. Friendly interactions, exceptional outcomes. For digital enchantment, it's got to be Embrace!"
+            imageUrl="avatar2.png"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <TestimonialCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard />
+          <TestimonialCard
+            name="John Doe"
+            position="Chief Manager"
+            testimonial="Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!"
+            imageUrl="avatar3.png"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
