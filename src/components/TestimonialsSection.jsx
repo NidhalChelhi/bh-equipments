@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
       </div>
       <Swiper
         ref={swiperRef}
-        slidesPerView={isSmallScreen ? 1 : isMediumScreen ? 2 : "auto"}
+        slidesPerView={isSmallScreen ? 1 : isMediumScreen ? 2 : 3}
         centeredSlides={false}
         spaceBetween={20}
         pagination={{

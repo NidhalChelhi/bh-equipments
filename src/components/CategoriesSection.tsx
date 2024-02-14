@@ -8,13 +8,13 @@ const CategoriesSection = () => {
             <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mx-8">
                 <div className="group w-full  flex flex-col items-center justify-center gap-6">
                     <div className=" h-[380px] rounded-2xl border-[1px] border-teritiary flex items-center justify-center">
-                        <img src="Mélangeurs.png" className="group-hover:scale-105 app_transition" />
+                        <img src="melangeurs.png" className="group-hover:scale-105 app_transition  h-[380px]" />
                     </div>
                     <span className="text-3xl font-medium">Mélangeurs</span>
                 </div>
                 <div className="group w-full  flex flex-col items-center justify-center gap-6">
                     <div className="  h-[380px] rounded-2xl border-[1px] border-teritiary flex items-center justify-center">
-                        <img src="mixeurs.png" className="group-hover:scale-105 app_transition" />
+                        <img src="mixeurs.png" className="group-hover:scale-105 app_transition  h-[380px]" />
                     </div>
                     <span className="text-3xl font-medium">Mixeurs</span>
                 </div>
