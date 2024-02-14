@@ -37,8 +37,8 @@ const TestimonialsSection = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center py-20  gap-16">
-      <div className="w-full flex flex-row items-center justify-between px-12 md:px-32 ">
+    <div className="flex flex-col items-center justify-center py-20 px-6  gap-16">
+      <div className="w-full flex flex-row items-center justify-between md:px-32 ">
         <h1 className="text-5xl sm:text-7xl font-medium">Avis clients</h1>
         <div className="flex flex-row gap-5 items-center justify-center">
           <button

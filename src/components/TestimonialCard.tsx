@@ -17,10 +17,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ imageUrl, name, posit
                     />
                 </div>
                 <div className="flex flex-col items-start justify-center">
-                    <h3 className="text-2xl">
+                    <h3 className="text-xl m:text-2xl">
                         {name}
                     </h3>
-                    <span className="text-xl">
+                    <span className="sm:text-xl">
                         {position}
                     </span>
                 </div>
