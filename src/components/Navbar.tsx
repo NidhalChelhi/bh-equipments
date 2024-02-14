@@ -53,7 +53,7 @@ export default function Navbar() {
 
                             {item.title === "Produits" && showDropdown && (
                                 <ul className="absolute top-full left-0 bg-white rounded-xl overflow-hidden shadow-lg mt-2 py-1 ">
-                                    {item.subItems.map((subItem) => (
+                                    {item.subItems?.map((subItem) => (
                                         <li key={`sub-link-${subItem.title}`}>
                                             <Link
                                                 href={`${subItem.route}`}
