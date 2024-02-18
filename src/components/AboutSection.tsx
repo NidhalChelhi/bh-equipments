@@ -2,6 +2,7 @@ import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import DescriptionCard from "./DescriptionCard";
+import Link from "next/link";
 
 const AboutSection = () => {
     return (
@@ -12,12 +13,12 @@ const AboutSection = () => {
                 We are committed to working with you collaboratively to <br />
                 understand your goals and create a strategy that will achieve them.
             </p>
-            <div className="group flex flex-row gap-2 items-center justify-center cursor-pointer">
+            <Link href="/about" className="group flex flex-row gap-2 items-center justify-center cursor-pointer">
                 <span className="text-primary text-lg font-medium">Learn More</span>
                 <div className="group-hover:animate-pulse">
                     <MoveRight color="#234189" />
                 </div>
-            </div>
+            </Link>
 
             <div className="flex flex-col lg:flex-row items-center justify-center gap-20  lg:gap-40 py-12 lg:py-24 px-12  lg:px-12  w-full mx-auto">
                 <div className="flex flex-col items-start justify-start text-start gap-12">
@@ -67,14 +68,14 @@ const AboutSection = () => {
                         Ready to transform your digital dresence? <br />
                         Let's create magic together! book our services now!
                     </p>
-                    <button
+                    <Link href="tel:+21624699556"
                         className="group bg-white hover:bg-secondary 
                     hover:scale-[103%] app_transition rounded-full py-4 px-12"
                     >
                         <span className="group-hover:text-white app_transition font-medium text-2xl">
                             Réservez un appel
                         </span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

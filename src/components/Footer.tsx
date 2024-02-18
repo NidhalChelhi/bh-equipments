@@ -33,11 +33,11 @@ const footerLinks = [
         links: [
             {
                 title: "+216 24 699 556",
-                href: "",
+                href: "tel:+21624699556",
             },
             {
                 title: "bh.equipments@gmail.com",
-                href: "",
+                href: "mailto:nidhalelchelhi@gmail.com",
             },
             {
                 title: "123 Rue Principale, Marseille, France",

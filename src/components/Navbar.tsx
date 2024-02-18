@@ -11,13 +11,13 @@ export default function Navbar() {
         {
             title: "Produits",
             subItems: [
-                { title: "Mixeurs", route: "mixeurs" },
-                { title: "Mélangeurs", route: "melangeurs" },
+                { title: "Mixeurs", route: "/mixeurs" },
+                { title: "Mélangeurs", route: "/melangeurs" },
                 // Add more sub-items as needed
             ],
         },
-        { title: "Contacts", route: "contact" },
-        { title: "À Propos", route: "about" },
+        { title: "Contacts", route: "/contact" },
+        { title: "À Propos", route: "/about" },
     ];
 
     return (
