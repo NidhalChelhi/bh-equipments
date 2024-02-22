@@ -3,6 +3,7 @@ import axios from "axios";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
 
 interface Product {
     category: string;
@@ -31,7 +32,7 @@ const Mixeurs: React.FC = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("https://bh-equipments-back.onrender.com/api/products");
-                setProducts(response.data.filter((product: Product) => product.category === "mixeurs"));
+                setProducts(response.data.filter((product: Product) => product.category === "mixeur"));
             } catch (error) {
                 console.error("Error fetching products:", error);
             } finally {
@@ -58,7 +59,17 @@ const Mixeurs: React.FC = () => {
                     <span className="text-xl text-gray-700">Mixeurs</span>
                 </div>
                 {loading ? (
-                    <p>Loading...</p>
+                    <div className="flex flex-col items-center justify-center gap-8">
+                        <p>Chargement des produits...</p>
+                        <RotatingLines
+                            visible={true}
+                            width="60"
+                            strokeColor="#ef3a47"
+                            strokeWidth="3"
+                            animationDuration="2"
+
+                        />
+                    </div>
                 ) : products.length === 0 ? (
                     <p>Aucun produit de la catégorie "Mixeurs" disponible pour le moment.</p>
                 ) : (

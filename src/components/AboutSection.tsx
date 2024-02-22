@@ -70,9 +70,9 @@ const AboutSection = () => {
                     </p>
                     <Link href="tel:+21624699556"
                         className="group bg-white hover:bg-secondary 
-                    hover:scale-[103%] app_transition rounded-full py-4 px-12"
+                    hover:scale-[103%] app_transition rounded-full py-4 px-12 text-center"
                     >
-                        <span className="group-hover:text-white app_transition font-medium text-2xl">
+                        <span className="group-hover:text-white app_transition font-medium text-2xl ">
                             Réservez un appel
                         </span>
                     </Link>

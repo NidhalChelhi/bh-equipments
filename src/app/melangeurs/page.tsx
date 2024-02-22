@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import axios from "axios";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
 
 interface Product {
     category: string;
@@ -30,8 +31,14 @@ const Melangeurs: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://bh-equipments-back.onrender.com/api/products");
-                setProducts(response.data.filter((product: Product) => product.category === "melangeur"));
+                const response = await axios.get(
+                    "https://bh-equipments-back.onrender.com/api/products"
+                );
+                setProducts(
+                    response.data.filter(
+                        (product: Product) => product.category === "melangeur"
+                    )
+                );
             } catch (error) {
                 console.error("Error fetching products:", error);
             } finally {
@@ -48,7 +55,8 @@ const Melangeurs: React.FC = () => {
             <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
                 <h1 className="font-bold text-4xl md:text-5xl">Mélangeurs</h1>
                 <p className="text-sm md:text-base">
-                    Optimisez votre expérience de pâtisserie avec nos mélangeurs professionnels de pâte.
+                    Optimisez votre expérience de pâtisserie avec nos mélangeurs
+                    professionnels de pâte.
                 </p>
             </section>
             <section className="flex flex-col py-12 gap-8 px-6 sm:px-12 md:px-20 xl:px-32 2xl:px-64">
@@ -58,9 +66,21 @@ const Melangeurs: React.FC = () => {
                     <span className="text-xl text-gray-700">Mélangeurs</span>
                 </div>
                 {loading ? (
-                    <p>Loading...</p>
+                    <div className="flex flex-col items-center justify-center gap-8">
+                        <p>Chargement des produits...</p>
+                        <RotatingLines
+                            visible={true}
+                            width="60"
+                            strokeColor="#ef3a47"
+                            strokeWidth="3"
+                            animationDuration="2"
+
+                        />
+                    </div>
                 ) : products.length === 0 ? (
-                    <p>Aucun produit de la catégorie "Mélangeur" disponible pour le moment.</p>
+                    <p>
+                        Aucun produit de la catégorie "Mélangeur" disponible pour le moment.
+                    </p>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                         {products.map((product, index) => (

@@ -4,6 +4,7 @@ import { SendHorizonal } from "lucide-react";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { z, ZodError } from "zod";
+import emailjs from "@emailjs/browser";
 
 const schema = z.object({
     fullname: z
@@ -18,7 +19,7 @@ const schema = z.object({
     city: z.string(),
     description: z
         .string()
-        .min(30, {
+        .min(15, {
             message: "La description doit comporter au moins 30 caractères",
         }),
 });
@@ -48,6 +49,25 @@ const ContactPage = () => {
 
         try {
             schema.parse(formData);
+            emailjs
+                .send(
+                    process.env.NEXT_PUBLIC_SERVICE_ID || "",
+                    process.env.NEXT_PUBLIC_TEMPLATE_ID || "",
+                    {
+                        from_name: formData.fullname,
+                        to_name: "BH Equipments",
+                        from_email: formData.email,
+                        to_email: "nidhalelchelhi@gmail.com",
+                        message: `Phone Number: ${formData.phoneNumber}
+                        City: ${formData.city}
+                        Message: ${formData.description}
+                        `,
+                    },
+                    process.env.NEXT_PUBLIC_PUBLIC_KEY || ""
+
+                )
+
+
             toast.success("Message Envoyé: Merci! Nous répondrons bientôt", {
                 theme: "colored",
             });
