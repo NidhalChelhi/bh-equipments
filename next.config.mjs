@@ -6,6 +6,7 @@ const nextConfig = {
       "m.media-amazon.com",
       "www.electroguide.com",
       "www.spice-electronics.com",
+      "bh-back.onrender.com",
     ],
   },
 };
