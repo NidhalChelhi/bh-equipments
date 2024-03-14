@@ -1,41 +1,22 @@
 "use client";
-import Product from "@/models/Products";
+import ProductCard from "@/components/ProductCard";
+import Petrin from "@/models/Petrin";
 import axios from "axios";
 import { ChevronRight } from "lucide-react";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 
-const ProductCard: React.FC<{ product: Product }> = ({ product }) => (
-  <Link href="/mixeurs/[slug]" as={`/mixeurs/${product.slug}`}>
-    <div className="flex flex-col gap-4 border-[1px] border-[#D4D2E3] rounded-3xl px-4 py-6 hover:scale-[101%] app_transition cursor-pointer">
-      <img
-        src={
-          process.env.NEXT_PUBLIC_BACKEND_BASE_URL + "/api/" + product.images[0]
-        }
-        alt={product.name}
-      />{" "}
-      <h3 className="font-bold text-xl text-primary">{product.name}</h3>
-      <p>{product.description}</p>
-    </div>
-  </Link>
-);
-
-const Mixeurs: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+const Petrins: React.FC = () => {
+  const [petrins, setPetrins] = useState<Petrin[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_BACKEND_BASE_URL + "/api/products/all"
+          process.env.NEXT_PUBLIC_BACKEND_BASE_URL + "/api/petrins/all"
         );
-        setProducts(
-          response.data.filter(
-            (product: Product) => product.category === "Mixeurs"
-          )
-        );
+        setPetrins(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -50,9 +31,9 @@ const Mixeurs: React.FC = () => {
     <main className="overflow-x-hidden flex flex-col">
       <div className="min-h-20 bg-primary" />
       <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
-        <h1 className="font-bold text-4xl md:text-5xl">Mixeurs</h1>
+        <h1 className="font-bold text-4xl md:text-5xl">Pétrins Spirale</h1>
         <p className="text-sm md:text-base">
-          Optimisez votre expérience de pâtisserie avec nos mixeurs
+          Optimisez votre expérience de pâtisserie avec nos Pétrins Spirale
           professionnels de pâte.
         </p>
       </section>
@@ -60,7 +41,7 @@ const Mixeurs: React.FC = () => {
         <div className="flex items-center justify-start gap-2">
           <span className="text-xl text-primary">Produits</span>
           <ChevronRight strokeWidth={4} size={16} />
-          <span className="text-xl text-gray-700">Mixeurs</span>
+          <span className="text-xl text-gray-700">Pétrins Spirale</span>
         </div>
         {loading ? (
           <div className="flex flex-col items-center justify-center gap-8">
@@ -73,14 +54,15 @@ const Mixeurs: React.FC = () => {
               animationDuration="2"
             />
           </div>
-        ) : products.length === 0 ? (
+        ) : petrins.length === 0 ? (
           <p>
-            Aucun produit de la catégorie "Mixeurs" disponible pour le moment.
+            Aucun produit de la catégorie "Pétrins Spirale" disponible pour le
+            moment.
           </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-            {products.map((product, index) => (
-              <ProductCard key={product._id} product={product} />
+            {petrins.map((petrin, index) => (
+              <ProductCard key={petrin._id} product={petrin} />
             ))}
           </div>
         )}
@@ -89,4 +71,4 @@ const Mixeurs: React.FC = () => {
   );
 };
 
-export default Mixeurs;
+export default Petrins;

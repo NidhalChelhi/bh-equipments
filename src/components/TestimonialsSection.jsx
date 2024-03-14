@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-6  gap-16">
+    <div className="flex flex-col items-center justify-center py-20 px-6 gap-16">
       <div className="w-full flex flex-row items-center justify-between md:px-32 ">
         <h1 className="text-5xl sm:text-7xl font-medium">Avis clients</h1>
         <div className="flex flex-row gap-5 items-center justify-center">
@@ -57,36 +57,28 @@ const TestimonialsSection = () => {
       </div>
       <Swiper
         ref={swiperRef}
-        slidesPerView={isSmallScreen ? 1 : isMediumScreen ? 2 : 3}
+        slidesPerView={isSmallScreen ? 1 : isMediumScreen ? 2 : 2}
         centeredSlides={false}
-        spaceBetween={20}
+        spaceBetween={40}
         pagination={{
           clickable: true,
         }}
-        className="swiper lg:ml-32"
+        className="swiper w-full h-full lg:px-10 xl:px-40"
       >
         <SwiperSlide>
           <TestimonialCard
-            name="Amelia Joseph"
-            position="Chief Manager"
-            testimonial="My vision came alive effortlessly. Their blend of casual and professional approach made the process a breeze. Creativity flowed, and the results were beyond my expectations."
-            imageUrl="avatar1.png"
+            name="La Fabrique"
+            testimonial="Je suis extrêmement satisfait du batteur professionnel DR-40 de la marque Durand. Cet équipement a considérablement amélioré mon efficacité en cuisine, me permettant de gérer facilement et rapidement de grandes quantités de pâte à pain et de pâte à gâteaux sans compromettre la qualité.
+            Je recommande vivement le batteur professionnel DR-40 à tous les professionnels de la boulangerie et de la pâtisserie. C'est un investissement qui en vaut vraiment la peine!"
+            imageUrl="Testimonial1.png"
           />
         </SwiperSlide>
         <SwiperSlide>
           <TestimonialCard
-            name="Jacob Joshua"
-            position="Chief Manager"
-            testimonial="I found the digital expertise I needed. Their creative-professional balance exceeded expectations. Friendly interactions, exceptional outcomes. For digital enchantment, it's got to be Embrace!"
-            imageUrl="avatar2.png"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <TestimonialCard
-            name="John Doe"
-            position="Chief Manager"
-            testimonial="Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!"
-            imageUrl="avatar3.png"
+            name="Flan de notre Dame"
+            testimonial="Je suis un boulanger professionnel, et depuis plusieurs mois, j'utilise le pétrin professionnel DR-60 de Durand. Cet appareil a totalement transformé ma façon de produire du pain. Maintenant, je suis capable de pétrir de grandes quantités de pâte rapidement et sans effort. La puissance de ce pétrin est incroyable et me permet d'obtenir une pâte uniforme et aérée à chaque utilisation.
+            Je conseille fortement le pétrin professionnel DR-60 à tous les boulangers professionnels. C'est un investissement rentable qui améliorera grandement votre production de pain!"
+            imageUrl="Testimonial2.png"
           />
         </SwiperSlide>
       </Swiper>

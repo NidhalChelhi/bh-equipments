@@ -7,6 +7,7 @@ const nextConfig = {
       "www.electroguide.com",
       "www.spice-electronics.com",
       "bh-back.onrender.com",
+      "localhost",
     ],
   },
 };
