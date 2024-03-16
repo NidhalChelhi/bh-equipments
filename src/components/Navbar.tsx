@@ -3,11 +3,15 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState("en");
+
+  const path = usePathname();
+  console.log(path);
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
@@ -24,8 +28,8 @@ export default function Navbar() {
     {
       title: t("Produits"),
       subItems: [
-        { title: t("Pétrin Spirale"), route: "/petrins" },
-        { title: t("Batteur Mélangeur"), route: "/batteurs" },
+        { title: t("petrin"), route: "/petrins" },
+        { title: t("batteur"), route: "/batteurs" },
       ],
     },
     { title: t("Contacts"), route: "/contact" },
@@ -33,7 +37,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full h-20 flex justify-between items-center fixed z-[50] px-6 sm:px-12 md:px-24 py-4 bg-primary bg-opacity-80 backdrop-blur-sm  ">
+    <nav
+      className={`w-full h-20 flex justify-between items-center fixed z-[50] px-6 sm:px-12 md:px-24 py-4 ${
+        path === "/"
+          ? "bg-white border-b-white bg-opacity-20 backdrop-blur-md border-b-[2px] border-opacity-10 text-primary"
+          : "bg-primary text-white backdrop-blur-sm "
+      }`}
+    >
       <img src="logo.svg" alt="Durand Logo" className="h-20 py-4" />
 
       <ul className="hidden lg:flex justify-center items-center list-none gap-20">
@@ -43,7 +53,7 @@ export default function Navbar() {
             key={`link-${item.title}`}
           >
             <span
-              className="relative text-white no-underline flex-col font-medium app_transition group-hover:text-teritiary"
+              className="relative  no-underline flex-col font-medium app_transition group-hover:text-teritiary"
               onClick={() => {
                 if (item.title === t("Produits")) {
                   setShowDropdown(!showDropdown);
@@ -85,7 +95,7 @@ export default function Navbar() {
         {language === "fr" ? (
           <button
             onClick={() => changeLanguage("fr")}
-            className="flex flex-row items-center gap-2 w-full font-semibold text-white hover:scale-105 app_transition cursor-pointer"
+            className="flex flex-row items-center gap-2 w-full font-semibold hover:scale-105 app_transition cursor-pointer"
           >
             <img
               src="/france.png"
@@ -99,7 +109,7 @@ export default function Navbar() {
         ) : (
           <button
             onClick={() => changeLanguage("en")}
-            className="flex flex-row items-center gap-2 w-full font-semibold text-white hover:scale-105 app_transition cursor-pointer"
+            className="flex flex-row items-center gap-2 w-full font-semibold hover:scale-105 app_transition cursor-pointer"
           >
             <img
               src="/uk.png"

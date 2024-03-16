@@ -16,8 +16,8 @@ const config: Config = {
         grey: "#666666",
       },
       backgroundImage: {
-        hero: "url('/hero.png')",
-        banner: "url('/Group 584.png')",
+        hero: "url('/hero.jpg')",
+        banner: "url('/bannerBG.png')",
       },
     },
   },

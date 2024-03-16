@@ -1,8 +1,11 @@
+"use client";
 import Batteur from "@/models/Batteur";
 import Petrin from "@/models/Petrin";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const ProductCard: React.FC<{ product: Batteur | Petrin }> = ({ product }) => {
+  const { t } = useTranslation();
   return (
     <Link
       href={`${
@@ -26,7 +29,7 @@ const ProductCard: React.FC<{ product: Batteur | Petrin }> = ({ product }) => {
           alt={product.name}
           className="max-h-[380px] object-contain w-full "
         />
-        <h3 className="font-bold text-xl text-primary">{product.name}</h3>
+        <h3 className="font-bold text-xl text-primary">{t(product.name)}</h3>
         <p>{product.model}</p>
       </div>
     </Link>

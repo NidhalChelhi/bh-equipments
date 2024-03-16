@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Batteur from "@/models/Batteur";
+import { useTranslation } from "react-i18next";
 
 const BatteurPage: React.FC = () => {
   const [batteur, setBatteur] = useState<Batteur | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
-
+  const { t } = useTranslation();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,17 +33,16 @@ const BatteurPage: React.FC = () => {
     <main className="overflow-x-hidden flex flex-col">
       <div className="min-h-20 bg-primary" />
       <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
-        <h1 className="font-bold text-4xl md:text-5xl">Batteur Mélangeur</h1>
+        <h1 className="font-bold text-4xl md:text-5xl">{t("batteur")}</h1>
         <p className="text-sm md:text-base">
-          Optimisez votre expérience de pâtisserie avec nos batteurs mélangeurs
-          professionnels de pâte.
+          {t("batteur_header_description")}
         </p>
       </section>
       <section className="flex flex-col  py-12 gap-8 px-6 sm:px-12 md:px-20 xl:px-32 2xl:px-64">
         <div className="flex items-center justify-start gap-2">
-          <span className="text-xl text-primary">Produits</span>
+          <span className="text-xl text-primary">{t("products")}</span>
           <ChevronRight strokeWidth={4} size={16} />
-          <span className="text-xl text-primary">Batteur Mélangeur</span>
+          <span className="text-xl text-primary">{t("batteur")}</span>
           <ChevronRight strokeWidth={4} size={16} />
           <span className="text-xl text-gray-700">{batteur.model}</span>
         </div>
@@ -63,16 +62,16 @@ const BatteurPage: React.FC = () => {
             <div className="flex flex-col items-start justify-start gap-4">
               <h3 className="font-semibold text-4xl text-primary">
                 {batteur.name} <br />
-                <span className="font-bold"> {batteur.model}</span>
+                <span className="font-bold">{batteur.model}</span>
               </h3>
 
               <p>{batteur.description}</p>
               <div className="rounded-2xl bg-gray-200 w-fit px-4 py-2">
                 <p className="font-semibold text-sm text-green-600 capitalize">
                   {batteur.stock === "available" ? (
-                    <span className="text-green-500">En Stock</span>
+                    <span className="text-green-500">{t("available")}</span>
                   ) : (
-                    <span className="text-red-500">Indisponible</span>
+                    <span className="text-red-500">{t("out_of_stock")}</span>
                   )}
                 </p>
               </div>
@@ -102,18 +101,18 @@ const BatteurPage: React.FC = () => {
             )}
           </div>
         </div>
-        <h2 className="font-bold text-2xl">Fiche Technique:</h2>
+        <h2 className="font-bold text-2xl">{t("technical_specifications")}</h2>
         <div className="hidden sm:block w-full">
           <table className="table-auto text-center w-full ">
             <thead>
               <tr>
-                <th className="py-2 px-4">Modèle</th>
-                <th>Capacité Cuve(L)</th>
-                <th>Puissance (KW)</th>
-                <th>Poids (kg)</th>
-                <th>Alimentation</th>
-                <th>Vitesse du fouet</th>
-                <th>Dimensions (mm)</th>
+                <th className="py-2 px-4">{t("model")}</th>
+                <th>{t("cuveCapacity")}</th>
+                <th>{t("puissance")}</th>
+                <th>{t("poids")}</th>
+                <th>{t("alimentation")}</th>
+                <th>{t("vitesse")}</th>
+                <th>{t("dimensions")}</th>
               </tr>
             </thead>
             <tbody>
@@ -138,32 +137,32 @@ const BatteurPage: React.FC = () => {
           >
             <tbody>
               <tr>
-                <td className="font-semibold">Modèle</td>
+                <td className="font-semibold">{t("model")}</td>
                 <td>{batteur.model} </td>
               </tr>
 
               <tr>
-                <td className="font-semibold">Capacité Cuve(L)</td>
+                <td className="font-semibold">{t("cuveCapacity")}</td>
                 <td>{batteur.cuveCapacity}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Puissance (KW)</td>
+                <td className="font-semibold">{t("puissance")}</td>
                 <td>{batteur.puissance}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Poids (kg)</td>
+                <td className="font-semibold">{t("poids")}</td>
                 <td className="py-2 px-4"> {batteur.poids} </td>
               </tr>
               <tr>
-                <td className="font-semibold">Alimentation</td>
+                <td className="font-semibold">{t("alimentation")}</td>
                 <td>{batteur.alimentation}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Vitesse du fouet</td>
+                <td className="font-semibold">{t("vitesse")}</td>
                 <td>{batteur.vitesse}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Dimensions (mm)</td>
+                <td className="font-semibold">{t("dimensions")}</td>
                 <td>{batteur.dimensions}</td>
               </tr>
             </tbody>

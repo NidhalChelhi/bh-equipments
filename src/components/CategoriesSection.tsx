@@ -13,7 +13,7 @@ const CategoriesSection = () => {
       <h1 className="text-5xl sm:text-7xl font-medium ">
         {t("catgeories_title")}
       </h1>
-      <p className="text-grey text-lg ">Aperçu de nos catégories</p>
+      <p className="text-grey text-lg ">{t("categories_description")}</p>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mx-8">
         <Link
           href="/petrins"
@@ -25,7 +25,7 @@ const CategoriesSection = () => {
               className="group-hover:scale-105 app_transition w-96"
             />
           </div>
-          <span className="text-3xl font-medium">Pétrin Spirale</span>
+          <span className="text-3xl font-medium">{t("petrin")}</span>
         </Link>
         <Link
           href="/batteurs"
@@ -37,7 +37,7 @@ const CategoriesSection = () => {
               className="group-hover:scale-105 app_transition w-96"
             />
           </div>
-          <span className="text-3xl font-medium">Batteur Mélangeur</span>
+          <span className="text-3xl font-medium">{t("batteur")}</span>
         </Link>
       </div>
     </section>

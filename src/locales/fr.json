@@ -1,6 +1,9 @@
 {
   "Acceuil": "Accueil",
   "Produits": "Produits",
+  "petrin": "Pétrin Spirale",
+  "batteur": "Batteur Mélangeur",
+
   "Pétrin Spirale": "Pétrin Spirale",
   "Batteur Mélangeur": "Batteur Mélangeur",
   "Contacts": "Contacts",
@@ -21,6 +24,7 @@
   "innovation_description": "L'équipe technique de Durand mise sur des mises à jour régulières pour répondre aux besoins clients.",
   "technical_assistance_title": "Assistance Technique",
   "technical_assistance_description": "Le réseau mondial de Durand assure un support commercial complet, tant avant qu'après-vente.",
+
   "world_class_manufacturing1": "Fabrication de",
   "world_class_manufacturing2": "Machines de",
   "world_class_manufacturing3": "Qualité Mondiale",
@@ -29,10 +33,54 @@
   "book_call": "Réservez un appel",
 
   "catgeories_title": "Nos Produits",
+  "categories_description": "Aperçu de nos catégories.",
 
   "about_us_description": "Soyez les bienvenus dans notre univers. Nous sommes là pour vous, prêts à répondre rapidement.",
   "durant_french1": "est une entreprise française qui conçoit et fabrique des pétrins spirale et batteur mélangeur pour la boulangerie pâtisserie artisanale et industrielle.",
   "durant_french2": "En 2022",
   "durant_french3": "Notre marque Durand French Mix a vu le jour",
-  "durant_french4": "C’est une filiale du groupe HBY Holding qui a maintenant une expérience de plus de quinze années dans le domaine de la boulangerie pâtisserie. Les principaux objectifs de notre marque sont de créer et de concevoir des pétrins et batteurs de qualité innovantes et performantes."
+  "durant_french4": "C’est une filiale du groupe HBY Holding qui a maintenant une expérience de plus de quinze années dans le domaine de la boulangerie pâtisserie. Les principaux objectifs de notre marque sont de créer et de concevoir des pétrins et batteurs de qualité innovantes et performantes.",
+
+  "testimonials_title": "Avis clients",
+  "testimonial1": "Je suis extrêmement satisfait du batteur professionnel DR-40 de la marque Durand. Cet équipement a considérablement amélioré mon efficacité en cuisine, me permettant de gérer facilement et rapidement de grandes quantités de pâte à pain et de pâte à gâteaux sans compromettre la qualité. Je recommande vivement le batteur professionnel DR-40 à tous les professionnels de la boulangerie et de la pâtisserie. C'est un investissement qui en vaut vraiment la peine!",
+  "testimonial2": "Je suis un boulanger professionnel, et depuis plusieurs mois, j'utilise le pétrin professionnel DR-60 de Durand. Cet appareil a totalement transformé ma façon de produire du pain. Maintenant, je suis capable de pétrir de grandes quantités de pâte rapidement et sans effort. La puissance de ce pétrin est incroyable et me permet d'obtenir une pâte uniforme et aérée à chaque utilisation. Je conseille fortement le pétrin professionnel DR-60 à tous les boulangers professionnels. C'est un investissement rentable qui améliorera grandement votre production de pain!",
+
+  "footer_title_1": "Nos Catégories",
+  "footer_title_2": "Nos Meilleurs Produits",
+  "footer_title_3": "Nos Contacts",
+  "footer_title_4": "© 2024 Durand, Inc. - Tous Droits Réservés.",
+  "footer_title_5": "Conditions d'utilisation",
+  "footer_title_6": "Politique de confidentialité",
+
+  "contact_header": "Contactez Nous",
+  "contact_description": "N'hésitez pas à nous contacter à tout moment. Nous vous répondrons dès que possible.",
+  "contact_form_title": "Envoyez-nous un message",
+  "contact_form_name": "Nom et Prénom*",
+  "contact_form_email": "Email*",
+  "contact_form_phone": "Numéro de Téléphone",
+  "contact_form_address": "Adresse",
+  "contact_form_message": "Message*",
+  "contact_form_button": "Envoyer",
+
+  "petrin_header_description": "Optimisez votre expérience de pâtisserie avec nos pétrins spirale professionnels de pâte.",
+  "batteur_header_description": "Optimisez votre expérience de pâtisserie avec nos batteurs mélangeurs professionnels de pâte.",
+
+  "products": "Produits",
+  "loading_products": "Chargement des produits...",
+  "no_products_found": "Aucun produit disponible pour le moment.",
+
+  "available": "En Stock",
+  "out_of_stock": "Indisponible",
+
+  "technical_specifications": "Fiche Technique:",
+  "model": "Modèle",
+  "cuveCapacity": "Capacité Cuve (L)",
+  "puissance": "Puissance (kW)",
+  "poids": "Poids  (kg)",
+  "alimentation": "Alimentation",
+  "vitesse": "Vitesse du Fouet",
+  "dimensions": "Dimensions (mm)",
+  "farineCapacity": "Capacité de Farine (kg)",
+  "patteCapacity": "Capacité de Pâte (kg)",
+  "volume": "Volume du bol (L)"
 }

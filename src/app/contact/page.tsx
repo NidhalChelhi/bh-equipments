@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { z, ZodError } from "zod";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const schema = z.object({
   fullname: z.string().min(5, {
@@ -21,6 +22,7 @@ const schema = z.object({
 });
 
 const ContactPage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -86,14 +88,13 @@ const ContactPage = () => {
     <main className="overflow-x-hidden flex flex-col">
       <div className="min-h-20 bg-primary" />
       <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
-        <h1 className="font-bold text-4xl md:text-5xl">Contactez Nous</h1>
-        <p className="text-sm md:text-base">
-          N'hésitez pas à nous contacter à tout moment. Nous vous répondrons dès
-          que possible.
-        </p>
+        <h1 className="font-bold text-4xl md:text-5xl">
+          {t("contact_header")}
+        </h1>
+        <p className="text-sm md:text-base">{t("contact_description")}</p>
       </section>
       <section className="flex flex-col py-16 gap-8 px-6 sm:px-12 md:px-20 xl:px-32 2xl:px-64">
-        <h2 className="font-bold text-2xl ">Envoyez-nous un message</h2>
+        <h2 className="font-bold text-2xl ">{t("contact_form_title")}</h2>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end justify-end">
             <CustomInput
@@ -101,7 +102,7 @@ const ContactPage = () => {
               name="fullname"
               value={formData.fullname}
               onChange={handleInputChange}
-              label="Nom et Prénom*"
+              label={t("contact_form_name")}
               placeholder=""
               required
             />
@@ -110,7 +111,7 @@ const ContactPage = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              label="Email*"
+              label={t("contact_form_email")}
               placeholder=""
               required
             />
@@ -119,7 +120,7 @@ const ContactPage = () => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
-              label="Numéro de Téléphone"
+              label={t("contact_form_phone")}
               placeholder=""
             />
             <CustomInput
@@ -127,7 +128,7 @@ const ContactPage = () => {
               name="city"
               value={formData.city}
               onChange={handleInputChange}
-              label="Cité"
+              label={t("contact_form_address")}
               placeholder=""
             />
             <CustomInput
@@ -135,7 +136,7 @@ const ContactPage = () => {
               name="description"
               value={formData.description}
               onChange={handleInputChange}
-              label="Description*"
+              label={t("contact_form_message")}
               placeholder=""
               required
             />
@@ -144,7 +145,7 @@ const ContactPage = () => {
                 type="submit"
                 className="bg-secondary text-white text-xl font-bold px-8 lg:px-24 py-3 rounded-2xl hover:bg-primary-dark transition-colors duration-300 mt-4 w-fit h-fit flex items-center justify-end gap-2"
               >
-                <span>Envoyer</span>
+                <span>{t("contact_form_button")}</span>
                 <SendHorizonal color="white" size={24} />
               </button>
             </div>

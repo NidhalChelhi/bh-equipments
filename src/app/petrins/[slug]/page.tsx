@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Petrin from "@/models/Petrin";
+import { useTranslation } from "react-i18next";
 
 const PetrinPage: React.FC = () => {
   const [petrin, setPetrin] = useState<Petrin | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,17 +34,14 @@ const PetrinPage: React.FC = () => {
     <main className="overflow-x-hidden flex flex-col">
       <div className="min-h-20 bg-primary" />
       <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
-        <h1 className="font-bold text-4xl md:text-5xl">Pétrin Spirale</h1>
-        <p className="text-sm md:text-base">
-          Optimisez votre expérience de pâtisserie avec nos pétrins spirale
-          professionnels de pâte.
-        </p>
+        <h1 className="font-bold text-4xl md:text-5xl">{t("petrin")}</h1>
+        <p className="text-sm md:text-base">{t("petrin_header_description")}</p>
       </section>
       <section className="flex flex-col  py-12 gap-8 px-6 sm:px-12 md:px-20 xl:px-32 2xl:px-64">
         <div className="flex items-center justify-start gap-2">
-          <span className="text-xl text-primary">Produits</span>
+          <span className="text-xl text-primary">{t("products")}</span>
           <ChevronRight strokeWidth={4} size={16} />
-          <span className="text-xl text-primary">Pétrins Spirale</span>
+          <span className="text-xl text-primary">{t("petrin")}</span>
           <ChevronRight strokeWidth={4} size={16} />
           <span className="text-xl text-gray-700">{petrin.model}</span>
         </div>
@@ -69,9 +67,9 @@ const PetrinPage: React.FC = () => {
               <div className="rounded-2xl bg-gray-300 w-fit px-4 py-2">
                 <p className="font-semibold text-sm text-green-600 capitalize">
                   {petrin.stock === "available" ? (
-                    <span className="text-green-500">En Stock</span>
+                    <span className="text-green-500">{t("available")}</span>
                   ) : (
-                    <span className="text-red-500">Indisponible</span>
+                    <span className="text-red-500">{t("out_of_stock")}</span>
                   )}
                 </p>
               </div>
@@ -101,18 +99,18 @@ const PetrinPage: React.FC = () => {
             )}
           </div>
         </div>
-        <h2 className="font-bold text-2xl">Fiche Technique:</h2>
+        <h2 className="font-bold text-2xl">{t("technical_specifications")}</h2>
         <div className="hidden sm:block w-full">
           <table className="table-auto text-center w-full ">
             <thead>
               <tr>
-                <th className="py-2 px-4">Modèle</th>
-                <th>Capacité de farine (KG)</th>
-                <th>Capacité de pâte (KG)</th>
-                <th>Volume du bol (L)</th>
-                <th>Puissance (kW)</th>
-                <th>Poids (KG)</th>
-                <th>Dimensions (mm)</th>
+                <th className="py-2 px-4">{t("model")}</th>
+                <th>{t("farineCapacity")}</th>
+                <th>{t("patteCapacity")}</th>
+                <th>{t("volume")}</th>
+                <th>{t("puissance")}</th>
+                <th>{t("poids")}</th>
+                <th>{t("dimensions")}</th>
               </tr>
             </thead>
             <tbody>
@@ -137,32 +135,32 @@ const PetrinPage: React.FC = () => {
           >
             <tbody>
               <tr>
-                <td className="font-semibold">Modèle</td>
+                <td className="font-semibold">{t("model")}</td>
                 <td>{petrin.model} </td>
               </tr>
 
               <tr>
-                <td className="font-semibold">Capacité de farine (KG)</td>
+                <td className="font-semibold">{t("farineCapacity")}</td>
                 <td>{petrin.farineCapacity}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Capacité de pâte (KG)</td>
+                <td className="font-semibold">{t("patteCapacity")}</td>
                 <td>{petrin.patteCapacity}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Volume du bol (L)</td>
+                <td className="font-semibold">{t("volume")}</td>
                 <td className="py-2 px-4"> {petrin.volume} </td>
               </tr>
               <tr>
-                <td className="font-semibold">Puissance (kW)</td>
+                <td className="font-semibold">{t("puissance")}</td>
                 <td>{petrin.puissance}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Poids (KG)</td>
+                <td className="font-semibold">{t("poids")}</td>
                 <td>{petrin.poids}</td>
               </tr>
               <tr>
-                <td className="font-semibold">Dimensions (mm)</td>
+                <td className="font-semibold">{t("dimensions")}</td>
                 <td>{petrin.dimensions}</td>
               </tr>
             </tbody>

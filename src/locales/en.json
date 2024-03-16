@@ -1,13 +1,18 @@
 {
   "Acceuil": "Home",
   "Produits": "Products",
+  "petrin": "Spiral Mixer",
+  "batteur": "Beater Mixer",
+
   "Pétrin Spirale": "Spiral Mixer",
   "Batteur Mélangeur": "Beater Mixer",
   "Contacts": "Contacts",
   "À Propos": "About Us",
+
   "hero_description1": "Discover our range of Spiral Mixers and Beater Mixers!",
   "hero_description2": "Performance and reliability to enhance your culinary creations.",
   "hero_button": "Discover our products",
+
   "about_title": "About Us",
   "about_description": "We are committed to collaborating with you to understand your goals and create a strategy that will achieve them.",
   "learn_more": "Learn More",
@@ -19,17 +24,63 @@
   "innovation_description": "Durand's technical team focuses on regular updates to meet client needs.",
   "technical_assistance_title": "Technical Assistance",
   "technical_assistance_description": "Durand's global network provides comprehensive commercial support, both before and after sales.",
+
   "world_class_manufacturing1": "Manufacturing",
   "world_class_manufacturing2": " World-Class",
   "world_class_manufacturing3": "Machines",
   "world_class_manufacturing_description1": "Ready to transform your digital presence?",
   "world_class_manufacturing_description2": "Let's create magic together! Book our services now!",
   "book_call": "Book a Call",
+
   "catgeories_title": "Our Products",
+  "categories_description": "Overview of our categories.",
 
   "about_us_description": "Welcome to our world. We are here for you, ready to respond quickly.",
   "durant_french1": "is a French company that designs and manufactures spiral mixers and mixer beaters for artisanal and industrial bakery and pastry.",
   "durant_french2": "In 2022",
   "durant_french3": "Our brand Durand French Mix was born.",
-  "durant_french4": "It is a subsidiary of the HBY Holding group, which now has over fifteen years of experience in the bakery and pastry industry. The main objectives of our brand are to create and design innovative and high-performance kneaders and mixers."
+  "durant_french4": "It is a subsidiary of the HBY Holding group, which now has over fifteen years of experience in the bakery and pastry industry. The main objectives of our brand are to create and design innovative and high-performance kneaders and mixers.",
+
+  "testimonials_title": "Testimonials",
+  "testimonial1": "I am extremely satisfied with the Durand DR-40 professional mixer. This equipment has greatly improved my efficiency in the kitchen, enabling me to manage large quantities of bread and cake dough quickly and easily without compromising quality. I highly recommend the DR-40 professional mixer to all baking and pastry professionals. It's well worth the investment!",
+  "testimonial2": "I'm a professional baker, and for several months now I've been using Durand's DR-60 professional mixer. This machine has totally transformed the way I produce bread. I'm now able to knead large quantities of dough quickly and effortlessly. The power of this mixer is incredible, enabling me to obtain an even, airy dough every time I use it. I highly recommend the DR-60 professional mixer to all professional bakers. It's a worthwhile investment that will greatly improve your bread production!",
+
+  "footer_title_1": "Our Categories",
+  "footer_title_2": "Our Best Products",
+  "footer_title_3": "Our Contacts",
+  "footer_title_4": "© 2024 Durand, Inc. - All rights reserved.",
+  "footer_title_5": "Terms of Service",
+  "footer_title_6": "Privacy Policy",
+
+  "contact_header": "Contact Us",
+  "contact_description": "Please feel free to contact us at any time. We'll get back to you as soon as possible.",
+  "contact_form_title": "Send us a message",
+  "contact_form_name": "Fullname*",
+  "contact_form_email": "Email*",
+  "contact_form_phone": "Phone Number",
+  "contact_form_address": "Address",
+  "contact_form_message": "Message*",
+  "contact_form_button": "Send",
+
+  "petrin_header_description": "Optimize your pastry experience with our professional Spiral Dough Mixers.",
+  "batteur_header_description": "Optimize your baking experience with our professional dough mixers.",
+
+  "products": "Products",
+  "loading_products": "Loading products...",
+  "no_products_found": "No products found.",
+
+  "available": "Available",
+  "out_of_stock": "Out of Stock",
+
+  "technical_specifications": "Technical Specifications:",
+  "model": "Model",
+  "cuveCapacity": "Bowl Capacity (L)",
+  "puissance": "Power (kW)",
+  "poids": "Weight (kg)",
+  "alimentation": "Power Supply",
+  "vitesse": "Whisk Speed",
+  "dimensions": "Dimensions (mm)",
+  "farineCapacity": "Flour Capacity (kg)",
+  "patteCapacity": "Dough Capacity (kg)",
+  "volume": "Bowl Volume (L)"
 }
