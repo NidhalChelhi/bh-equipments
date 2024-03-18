@@ -1,159 +1,68 @@
 "use client";
-import CustomInput from "@/components/CustomInput";
-import { SendHorizonal } from "lucide-react";
-import React, { useState } from "react";
-import { toast } from "react-toastify";
-import { z, ZodError } from "zod";
-import emailjs from "@emailjs/browser";
+import React from "react";
+import Card from "./components/Card";
+import Icon from "./components/Icon";
+import Photo from "./components/Photo";
+import Form from "./components/Form";
 import { useTranslation } from "react-i18next";
 
-const schema = z.object({
-  fullname: z.string().min(5, {
-    message: "Le nom et prénom doivent comporter au moins 5 caractères",
-  }),
-  email: z
-    .string()
-    .email({ message: "Veuillez saisir une adresse e-mail valide" }),
-  phoneNumber: z.string(),
-  city: z.string(),
-  description: z.string().min(15, {
-    message: "La description doit comporter au moins 30 caractères",
-  }),
-});
+interface CardData {
+  cardIcon: JSX.Element;
+  title: string;
+  description: string;
+}
 
-const ContactPage = () => {
+export default function Contact() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    phoneNumber: "",
-    city: "",
-    description: "",
-  });
-  const [formErrors, setFormErrors] = useState<ZodError | null>(null);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      schema.parse(formData);
-      emailjs.send(
-        process.env.NEXT_PUBLIC_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_TEMPLATE_ID || "",
-        {
-          from_name: formData.fullname,
-          to_name: "BH Equipments",
-          from_email: formData.email,
-          to_email: "contact@durand.fr",
-          message: `Phone Number: ${formData.phoneNumber}
-                        City: ${formData.city}
-                        Message: ${formData.description}
-                        `,
-        },
-        process.env.NEXT_PUBLIC_PUBLIC_KEY || ""
-      );
-
-      toast.success("Message Envoyé: Merci! Nous répondrons bientôt", {
-        theme: "colored",
-      });
-      setFormData({
-        fullname: "",
-        email: "",
-        phoneNumber: "",
-        city: "",
-        description: "",
-      });
-      setFormErrors(null);
-    } catch (error) {
-      if (error instanceof ZodError) {
-        setFormErrors(error);
-      }
-      toast.error("Merci de vérifier vos informations avant de procéder.", {
-        theme: "colored",
-      });
-    }
-  };
+  const cardsData: CardData[] = [
+    {
+      cardIcon: (
+        <Icon icon="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      ),
+      title: `${t("contact_form_phone")}`,
+      description: "12548693578",
+    },
+    {
+      cardIcon: (
+        <Icon icon="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+      ),
+      title: `${t("contact_form_address")}`,
+      description: "contact@durand.fr",
+    },
+    {
+      cardIcon: (
+        <Icon
+          icon="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+          circle={<circle cx="12" cy="10" r="3" />}
+        />
+      ),
+      title: `${t("contact_form_location")}`,
+      description: "France",
+    },
+  ];
 
   return (
     <main className="overflow-x-hidden flex flex-col">
-      <div className="min-h-20 bg-primary" />
-      <section className="h-44 bg-primary flex flex-col items-center justify-center gap-4 px-6 lg:px-12 xl:px-32 2xl:px-64 text-white text-center">
-        <h1 className="font-bold text-4xl md:text-5xl">
-          {t("contact_header")}
-        </h1>
-        <p className="text-sm md:text-base">{t("contact_description")}</p>
-      </section>
-      <section className="flex flex-col py-16 gap-8 px-6 sm:px-12 md:px-20 xl:px-32 2xl:px-64">
-        <h2 className="font-bold text-2xl ">{t("contact_form_title")}</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end justify-end">
-            <CustomInput
-              type="text"
-              name="fullname"
-              value={formData.fullname}
-              onChange={handleInputChange}
-              label={t("contact_form_name")}
-              placeholder=""
-              required
-            />
-            <CustomInput
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              label={t("contact_form_email")}
-              placeholder=""
-              required
-            />
-            <CustomInput
-              type="tel"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              label={t("contact_form_phone")}
-              placeholder=""
-            />
-            <CustomInput
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-              label={t("contact_form_address")}
-              placeholder=""
-            />
-            <CustomInput
-              type="textarea"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              label={t("contact_form_message")}
-              placeholder=""
-              required
-            />
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="bg-secondary text-white text-xl font-bold px-8 lg:px-24 py-3 rounded-2xl hover:bg-primary-dark transition-colors duration-300 mt-4 w-fit h-fit flex items-center justify-end gap-2"
-              >
-                <span>{t("contact_form_button")}</span>
-                <SendHorizonal color="white" size={24} />
-              </button>
-            </div>
+      <Photo />
+      <div className="mx-10 mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <div className="col-span-2">
+            <h1 className="text-2xl font-bold my-4">{t("contact_header")}</h1>
+            <Form />
           </div>
-        </form>
-      </section>
+        </div>
+        <div className="col-span-1">
+          {cardsData.map((card, index) => (
+            <Card
+              key={index}
+              cardIcon={card.cardIcon}
+              title={card.title}
+              description={card.description}
+            />
+          ))}
+        </div>
+      </div>
     </main>
   );
-};
-
-export default ContactPage;
+}
