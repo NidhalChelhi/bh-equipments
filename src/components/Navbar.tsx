@@ -53,7 +53,7 @@ export default function Navbar() {
             key={`link-${item.title}`}
           >
             <span
-              className="relative  no-underline flex-col font-medium app_transition group-hover:text-teritiary"
+              className="relative  no-underline flex-col font-medium text-xl app_transition group-hover:text-teritiary"
               onClick={() => {
                 if (item.title === t("Produits")) {
                   setShowDropdown(!showDropdown);

@@ -24,12 +24,12 @@ const Footer = () => {
       title: t("footer_title_2"),
       links: [
         {
-          title: "Produit #001",
-          href: "/products/1",
+          title: "Pétrin Spirale DR 100",
+          href: "/products/petrin-spirale-dr-100",
         },
         {
-          title: "Produit #002",
-          href: "/products/2",
+          title: "Batteur Mélangeur DR 40",
+          href: "/products/batteur-melangeur-dr-40",
         },
       ],
     },
