@@ -18,6 +18,10 @@ const Petrins: React.FC = () => {
         const response = await axios.get(
           process.env.NEXT_PUBLIC_BACKEND_BASE_URL + "/api/petrins/all"
         );
+        // sort by model
+        response.data.sort((a: Petrin, b: Petrin) =>
+          a.model.localeCompare(b.model, undefined, { numeric: true })
+        );
         setPetrins(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);

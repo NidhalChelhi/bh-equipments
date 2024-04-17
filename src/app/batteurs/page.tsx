@@ -18,11 +18,11 @@ const Batteurs: React.FC = () => {
         const response = await axios.get(
           process.env.NEXT_PUBLIC_BACKEND_BASE_URL + "/api/batteurs/all"
         );
-        setBatteurs(
-          response.data.filter(
-            (batteur: Batteur) => batteur.category === "Batteur Mélangeur"
-          )
+        // sort by model
+        response.data.sort((a: Batteur, b: Batteur) =>
+          a.model.localeCompare(b.model, undefined, { numeric: true })
         );
+        setBatteurs(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
